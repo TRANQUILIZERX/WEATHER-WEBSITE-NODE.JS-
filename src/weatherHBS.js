@@ -13,6 +13,7 @@ const temppath = path.join(__dirname,'../templates/views');
 const partialpath = path.join(__dirname,'../templates/partials'); 
 
 const app = exp();
+const port = process.env.PORT || 8080; // fetching port from env variable for local m/c 8080
 
 //setup handlebars engine and views location
 app.set('view engine','hbs');
@@ -35,7 +36,7 @@ app.get('/about',(req,res) =>
 {
     res.render('about',
     {
-        title : 'ABOUT US',
+        title : 'ABOUT',
         name : 'Sushovan Saha'
     });
 })
@@ -105,7 +106,13 @@ app.get('*',(req,res) =>
 
 })
 
+app.listen(port,() =>
+{
+    console.log("server is up on port: "+port);
+})
+
+/* // for local host
 app.listen(8080,() =>
 {
     console.log("server is up on port 8080");
-})
+})*/

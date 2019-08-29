@@ -15,7 +15,8 @@ weatherForm.addEventListener('submit', (event) =>
     
     const location = search.value;
 
-    fetch('http://127.0.0.1:8080/weather?search='+location).then((response) =>
+    // for local host fetch('http://127.0.0.1:8080/weather?search='+location)
+    fetch('/weather?search='+location).then((response) =>
     {
         message2.textContent = '';
         message3.textContent = '';
